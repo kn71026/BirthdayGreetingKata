@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 class BaseBirthdayMessage:
-    def message(self, month=None, day=None):
+    def get(self, month=None, day=None):
         if not month or not day:
             people_list = Birthday.objects.all()
         else:
