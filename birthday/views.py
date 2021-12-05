@@ -13,7 +13,7 @@ class BirthdayByDate(ListAPIView):
 
     def get(self, request, *args, **krgs):
         # 根據不同version呼叫不同class
-        message_sender = BirthdayMessageV5Json()
+        message_sender = BirthdayMessageV5Xml()
         date = self.request.GET.get('date', None)
         if date is not None:
             try:
