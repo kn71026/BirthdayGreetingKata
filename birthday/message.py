@@ -60,3 +60,9 @@ class BirthdayMessageV3(BaseBirthdayMessage):
         else:
             return "Happy birthday, dear " + str(people.first_name) + "!"
 
+
+class BirthdayMessageV4(BaseBirthdayMessage):
+    def get_content(self, people):
+        return "Happy birthday, dear " + str(people.last_name) + ", " + str(people.first_name) + "!"
+
+
