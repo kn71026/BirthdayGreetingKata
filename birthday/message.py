@@ -38,3 +38,15 @@ class BirthdayMessageV1(BaseBirthdayMessage):
         return "Happy birthday, dear " + str(people.first_name) + "!"
 
 
+class BirthdayMessageV2(BaseBirthdayMessage):
+    def get_content(self, people):
+        if people.gender == 'Male':
+            return "Happy birthday, dear " + str(
+                people.first_name) + "!\nWe offer special discount 20% off for the following items:" \
+                                     "\nWhiteWine, iPhoneX"
+        elif people.gender == 'Female':
+            return "Happy birthday, dear " + str(
+                people.first_name) + "!\nWe offer special discount 50% off for the following items:" \
+                                     "\nCosmetic, LV Handbags"
+
+
