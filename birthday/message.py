@@ -31,3 +31,10 @@ class BaseBirthdayMessage:
             text += message['title'] + "\n"
             text += message['content'] + "\n"
         return HttpResponse(text)
+
+
+class BirthdayMessageV1(BaseBirthdayMessage):
+    def get_content(self, people):
+        return "Happy birthday, dear " + str(people.first_name) + "!"
+
+
