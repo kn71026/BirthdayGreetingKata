@@ -66,3 +66,25 @@ class BirthdayMessageV4(BaseBirthdayMessage):
         return "Happy birthday, dear " + str(people.last_name) + ", " + str(people.first_name) + "!"
 
 
+class BirthdayMessageV5Json(BaseBirthdayMessage):
+    def get_content(self, people):
+        return "Happy birthday, dear " + str(people.last_name) + ", " + str(people.first_name) + "!"
+
+    def make_response(self, message_list):
+        return JsonResponse(message_list, safe=False)
+
+
+class BirthdayMessageV5Xml(BaseBirthdayMessage):
+    def get_content(self, people):
+        return "Happy birthday, dear " + str(people.first_name) + "!"
+
+    def make_response(self, message_list):
+        text = "<root>"
+        for message in message_list:
+            text += "<list-item>"
+            for key, value in message.items():
+                text += f"<{key}>{value}</{key}>"
+            text += "</list-item>"
+        text += "</root>"
+
+        return HttpResponse(text)
