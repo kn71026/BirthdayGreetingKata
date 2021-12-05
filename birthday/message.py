@@ -68,7 +68,7 @@ class BirthdayMessageV4(BaseBirthdayMessage):
 
 class BirthdayMessageV5Json(BaseBirthdayMessage):
     def get_content(self, people):
-        return "Happy birthday, dear " + str(people.last_name) + ", " + str(people.first_name) + "!"
+        return "Happy birthday, dear " + str(people.first_name) + "!"
 
     def make_response(self, message_list):
         return JsonResponse(message_list, safe=False)
