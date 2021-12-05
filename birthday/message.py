@@ -50,3 +50,13 @@ class BirthdayMessageV2(BaseBirthdayMessage):
                                      "\nCosmetic, LV Handbags"
 
 
+class BirthdayMessageV3(BaseBirthdayMessage):
+    def get_content(self, people):
+        date = datetime.datetime.today()
+        year = int(date.strftime("%Y"))
+        if people.date_of_birth.year <= int(year - 49):
+            return "Happy birthday, dear `" + str(
+                people.first_name) + "`!(A greeting picture here)"
+        else:
+            return "Happy birthday, dear " + str(people.first_name) + "!"
+
